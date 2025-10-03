@@ -1,12 +1,3 @@
-[submodule "main/themes/hugo-paper"]
-	path = main/themes/hugo-paper
-	url = https://github.com/nanxiaobei/hugo-paper.git
-[submodule "main/themes/hermit-V2"]
-	path = main/themes/hermit-V2
-	url = https://github.com/1bl4z3r/hermit-V2
-[submodule "main/themes/nightfall"]
-	path = main/themes/nightfall
-	url = https://github.com/lordmathis/hugo-theme-nightfall
 [submodule "main/themes/papermod"]
 	path = main/themes/papermod
 	url = https://github.com/adityatelange/hugo-PaperMod.git
