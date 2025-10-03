@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Class01 - Text,Image,Stack,Button &amp; State | Learn Swift 🚀 | Happy Coding 🚗</title>
+<meta name="keywords" content="Text, Image, Stack, Button">
+<meta name="description" content="基礎技術
+
+Text
+Image
+Stack
+Button
+State
+
+基礎技術
+Code
+import SwiftUI
+
+struct ContentView: View {
+    @State var currentBackgroundColor = Color(red: 0.09, green: 0.63, blue: 0.52)
+    var body: some View {
+        ZStack {
+            currentBackgroundColor
+                .edgesIgnoringSafeArea(.all)
+            VStack {
+                Image(systemName: &#34;person.fill&#34;)
+                    .resizable()
+                    //.aspectRatio(contentMode: .fit)
+                    .frame(width: 150.0, height: 150.0)
+                    .foregroundColor(.green)
+                    .clipShape(Circle())
+                    .overlay(Circle().stroke(.white, lineWidth: 5))
+                Text(&#34;Feng Yu Wei&#34;)
+                    .font(.system(size: 40, design: .rounded))
+                    .bold()
+                    .foregroundColor(.white)
+                Text(&#34;iOS Developer&#34;)
+                    .font(.system(size: 25))
+                    .foregroundColor(.white)
+                    .italic()
+                InfoView(imageName: &#34;phone.fill&#34;, text: &#34;&#43;86 18888988788&#34;)
+                InfoView(imageName: &#34;envelope.fill&#34;, text: &#34;fengyuwei@zju.edu.cn&#34;)
+                HStack {
+                    Button {
+                        currentBackgroundColor = Color.red
+                    } label: {
+                        Image(systemName: &#34;star.fill&#34;)
+                            .resizable()
+                            .frame(width: 35, height: 35)
+                            .foregroundStyle(.red)
+                    }
+                    Button {
+                        currentBackgroundColor = Color.blue
+                    } label: {
+                        Image(systemName: &#34;star.fill&#34;)
+                            .resizable()
+                            .frame(width: 35, height: 35)
+                            .foregroundStyle(.blue)
+                    }
+                    Button {
+                        currentBackgroundColor = Color(red: 0.09, green: 0.63, blue: 0.52)
+                    } label: {
+                        Image(systemName: &#34;star.fill&#34;)
+                            .resizable()
+                            .frame(width: 35, height: 35)
+                            .foregroundStyle(.green)
+                    }
+                }
+            }
+        }
+    }
+}
+
+struct InfoView: View {
+    let imageName: String
+    let text: String
+    var imageColor: Color? = .green
+    var body: some View {
+        RoundedRectangle(cornerRadius: 25)
+            .fill(Color.white)
+            .frame(height: 50)
+            .overlay(
+                HStack {
+                    Image(systemName: imageName)
+                        .foregroundColor(imageColor)
+                    Text(text)
+                        .foregroundColor(.black)
+                })
+            .padding(.all)
+    }
+}
+">
+<meta name="author" content="Yu Wei, Feng">
+<link rel="canonical" href="http://localhost:1313/notes/class01-textimagestackbuttonstate-20250926/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.a090830a421002426baafbd314e38f149d77b4c48a12ee9312700d770b27fb26.css" integrity="sha256-oJCDCkIQAkJrqvvTFOOPFJ13tMSKEu6TEnANdwsn&#43;yY=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/img/favicon/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/img/favicon/favicon16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/img/favicon/favicon32x32.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/img/favicon/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:1313/safari-pinned-tab.svg">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/notes/class01-textimagestackbuttonstate-20250926/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:url" content="http://localhost:1313/notes/class01-textimagestackbuttonstate-20250926/">
+  <meta property="og:site_name" content="Learn Swift 🚀 | Happy Coding 🚗">
+  <meta property="og:title" content="Class01 - Text,Image,Stack,Button & State">
+  <meta property="og:description" content="基礎技術 Text Image Stack Button State 基礎技術 Code import SwiftUI struct ContentView: View { @State var currentBackgroundColor = Color(red: 0.09, green: 0.63, blue: 0.52) var body: some View { ZStack { currentBackgroundColor .edgesIgnoringSafeArea(.all) VStack { Image(systemName: &#34;person.fill&#34;) .resizable() //.aspectRatio(contentMode: .fit) .frame(width: 150.0, height: 150.0) .foregroundColor(.green) .clipShape(Circle()) .overlay(Circle().stroke(.white, lineWidth: 5)) Text(&#34;Feng Yu Wei&#34;) .font(.system(size: 40, design: .rounded)) .bold() .foregroundColor(.white) Text(&#34;iOS Developer&#34;) .font(.system(size: 25)) .foregroundColor(.white) .italic() InfoView(imageName: &#34;phone.fill&#34;, text: &#34;&#43;86 18888988788&#34;) InfoView(imageName: &#34;envelope.fill&#34;, text: &#34;fengyuwei@zju.edu.cn&#34;) HStack { Button { currentBackgroundColor = Color.red } label: { Image(systemName: &#34;star.fill&#34;) .resizable() .frame(width: 35, height: 35) .foregroundStyle(.red) } Button { currentBackgroundColor = Color.blue } label: { Image(systemName: &#34;star.fill&#34;) .resizable() .frame(width: 35, height: 35) .foregroundStyle(.blue) } Button { currentBackgroundColor = Color(red: 0.09, green: 0.63, blue: 0.52) } label: { Image(systemName: &#34;star.fill&#34;) .resizable() .frame(width: 35, height: 35) .foregroundStyle(.green) } } } } } } struct InfoView: View { let imageName: String let text: String var imageColor: Color? = .green var body: some View { RoundedRectangle(cornerRadius: 25) .fill(Color.white) .frame(height: 50) .overlay( HStack { Image(systemName: imageName) .foregroundColor(imageColor) Text(text) .foregroundColor(.black) }) .padding(.all) } } ">
+  <meta property="og:locale" content="en-us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="notes">
+    <meta property="article:published_time" content="2025-09-26T12:50:12+08:00">
+    <meta property="article:modified_time" content="2025-09-26T12:50:12+08:00">
+    <meta property="article:tag" content="Text">
+    <meta property="article:tag" content="Image">
+    <meta property="article:tag" content="Stack">
+    <meta property="article:tag" content="Button">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Class01 - Text,Image,Stack,Button &amp; State">
+<meta name="twitter:description" content="基礎技術
+
+Text
+Image
+Stack
+Button
+State
+
+基礎技術
+Code
+import SwiftUI
+
+struct ContentView: View {
+    @State var currentBackgroundColor = Color(red: 0.09, green: 0.63, blue: 0.52)
+    var body: some View {
+        ZStack {
+            currentBackgroundColor
+                .edgesIgnoringSafeArea(.all)
+            VStack {
+                Image(systemName: &#34;person.fill&#34;)
+                    .resizable()
+                    //.aspectRatio(contentMode: .fit)
+                    .frame(width: 150.0, height: 150.0)
+                    .foregroundColor(.green)
+                    .clipShape(Circle())
+                    .overlay(Circle().stroke(.white, lineWidth: 5))
+                Text(&#34;Feng Yu Wei&#34;)
+                    .font(.system(size: 40, design: .rounded))
+                    .bold()
+                    .foregroundColor(.white)
+                Text(&#34;iOS Developer&#34;)
+                    .font(.system(size: 25))
+                    .foregroundColor(.white)
+                    .italic()
+                InfoView(imageName: &#34;phone.fill&#34;, text: &#34;&#43;86 18888988788&#34;)
+                InfoView(imageName: &#34;envelope.fill&#34;, text: &#34;fengyuwei@zju.edu.cn&#34;)
+                HStack {
+                    Button {
+                        currentBackgroundColor = Color.red
+                    } label: {
+                        Image(systemName: &#34;star.fill&#34;)
+                            .resizable()
+                            .frame(width: 35, height: 35)
+                            .foregroundStyle(.red)
+                    }
+                    Button {
+                        currentBackgroundColor = Color.blue
+                    } label: {
+                        Image(systemName: &#34;star.fill&#34;)
+                            .resizable()
+                            .frame(width: 35, height: 35)
+                            .foregroundStyle(.blue)
+                    }
+                    Button {
+                        currentBackgroundColor = Color(red: 0.09, green: 0.63, blue: 0.52)
+                    } label: {
+                        Image(systemName: &#34;star.fill&#34;)
+                            .resizable()
+                            .frame(width: 35, height: 35)
+                            .foregroundStyle(.green)
+                    }
+                }
+            }
+        }
+    }
+}
+
+struct InfoView: View {
+    let imageName: String
+    let text: String
+    var imageColor: Color? = .green
+    var body: some View {
+        RoundedRectangle(cornerRadius: 25)
+            .fill(Color.white)
+            .frame(height: 50)
+            .overlay(
+                HStack {
+                    Image(systemName: imageName)
+                        .foregroundColor(imageColor)
+                    Text(text)
+                        .foregroundColor(.black)
+                })
+            .padding(.all)
+    }
+}
+">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Notes",
+      "item": "http://localhost:1313/notes/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Class01 - Text,Image,Stack,Button \u0026 State",
+      "item": "http://localhost:1313/notes/class01-textimagestackbuttonstate-20250926/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Class01 - Text,Image,Stack,Button \u0026 State",
+  "name": "Class01 - Text,Image,Stack,Button \u0026 State",
+  "description": "基礎技術 Text Image Stack Button State 基礎技術 Code import SwiftUI struct ContentView: View { @State var currentBackgroundColor = Color(red: 0.09, green: 0.63, blue: 0.52) var body: some View { ZStack { currentBackgroundColor .edgesIgnoringSafeArea(.all) VStack { Image(systemName: \u0026#34;person.fill\u0026#34;) .resizable() //.aspectRatio(contentMode: .fit) .frame(width: 150.0, height: 150.0) .foregroundColor(.green) .clipShape(Circle()) .overlay(Circle().stroke(.white, lineWidth: 5)) Text(\u0026#34;Feng Yu Wei\u0026#34;) .font(.system(size: 40, design: .rounded)) .bold() .foregroundColor(.white) Text(\u0026#34;iOS Developer\u0026#34;) .font(.system(size: 25)) .foregroundColor(.white) .italic() InfoView(imageName: \u0026#34;phone.fill\u0026#34;, text: \u0026#34;+86 18888988788\u0026#34;) InfoView(imageName: \u0026#34;envelope.fill\u0026#34;, text: \u0026#34;fengyuwei@zju.edu.cn\u0026#34;) HStack { Button { currentBackgroundColor = Color.red } label: { Image(systemName: \u0026#34;star.fill\u0026#34;) .resizable() .frame(width: 35, height: 35) .foregroundStyle(.red) } Button { currentBackgroundColor = Color.blue } label: { Image(systemName: \u0026#34;star.fill\u0026#34;) .resizable() .frame(width: 35, height: 35) .foregroundStyle(.blue) } Button { currentBackgroundColor = Color(red: 0.09, green: 0.63, blue: 0.52) } label: { Image(systemName: \u0026#34;star.fill\u0026#34;) .resizable() .frame(width: 35, height: 35) .foregroundStyle(.green) } } } } } } struct InfoView: View { let imageName: String let text: String var imageColor: Color? = .green var body: some View { RoundedRectangle(cornerRadius: 25) .fill(Color.white) .frame(height: 50) .overlay( HStack { Image(systemName: imageName) .foregroundColor(imageColor) Text(text) .foregroundColor(.black) }) .padding(.all) } } ",
+  "keywords": [
+    "Text", "Image", "Stack", "Button"
+  ],
+  "articleBody": "基礎技術 Text Image Stack Button State 基礎技術 Code import SwiftUI struct ContentView: View { @State var currentBackgroundColor = Color(red: 0.09, green: 0.63, blue: 0.52) var body: some View { ZStack { currentBackgroundColor .edgesIgnoringSafeArea(.all) VStack { Image(systemName: \"person.fill\") .resizable() //.aspectRatio(contentMode: .fit) .frame(width: 150.0, height: 150.0) .foregroundColor(.green) .clipShape(Circle()) .overlay(Circle().stroke(.white, lineWidth: 5)) Text(\"Feng Yu Wei\") .font(.system(size: 40, design: .rounded)) .bold() .foregroundColor(.white) Text(\"iOS Developer\") .font(.system(size: 25)) .foregroundColor(.white) .italic() InfoView(imageName: \"phone.fill\", text: \"+86 18888988788\") InfoView(imageName: \"envelope.fill\", text: \"fengyuwei@zju.edu.cn\") HStack { Button { currentBackgroundColor = Color.red } label: { Image(systemName: \"star.fill\") .resizable() .frame(width: 35, height: 35) .foregroundStyle(.red) } Button { currentBackgroundColor = Color.blue } label: { Image(systemName: \"star.fill\") .resizable() .frame(width: 35, height: 35) .foregroundStyle(.blue) } Button { currentBackgroundColor = Color(red: 0.09, green: 0.63, blue: 0.52) } label: { Image(systemName: \"star.fill\") .resizable() .frame(width: 35, height: 35) .foregroundStyle(.green) } } } } } } struct InfoView: View { let imageName: String let text: String var imageColor: Color? = .green var body: some View { RoundedRectangle(cornerRadius: 25) .fill(Color.white) .frame(height: 50) .overlay( HStack { Image(systemName: imageName) .foregroundColor(imageColor) Text(text) .foregroundColor(.black) }) .padding(.all) } } ",
+  "wordCount" : "179",
+  "inLanguage": "en",
+  "datePublished": "2025-09-26T12:50:12+08:00",
+  "dateModified": "2025-09-26T12:50:12+08:00",
+  "author":{
+    "@type": "Person",
+    "name": "Yu Wei, Feng"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/notes/class01-textimagestackbuttonstate-20250926/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Learn Swift 🚀 | Happy Coding 🚗",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/img/favicon/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Learn Swift 🚀 | Happy Coding 🚗 (Alt + H)">Learn Swift 🚀 | Happy Coding 🚗</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/" title="Learn Swift 🚀 | Happy Coding 🚗">
+                    <span>Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/notes/" title="Notes">
+                    <span>Notes</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/tags/" title="Tags">
+                    <span>Tags</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/notes/">Notes</a></div>
+    <h1 class="post-title entry-hint-parent">
+      Class01 - Text,Image,Stack,Button &amp; State
+    </h1>
+    <div class="post-meta"><span title='2025-09-26 12:50:12 +0800 CST'>September 26, 2025</span>&nbsp;·&nbsp;<span>1 min</span>&nbsp;·&nbsp;<span>Yu Wei, Feng</span>
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><ul>
+                <li>
+                    <a href="#%e5%9f%ba%e7%a4%8e%e6%8a%80%e8%a1%93" aria-label="基礎技術">基礎技術</a></li>
+                <li>
+                    <a href="#%e5%9f%ba%e7%a4%8e%e6%8a%80%e8%a1%93-1" aria-label="基礎技術">基礎技術</a><ul>
+                        
+                <li>
+                    <a href="#code" aria-label="Code">Code</a>
+                </li>
+            </ul>
+            </li>
+            </ul>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><h2 id="基礎技術">基礎技術<a hidden class="anchor" aria-hidden="true" href="#基礎技術">#</a></h2>
+<ul>
+<li>Text</li>
+<li>Image</li>
+<li>Stack</li>
+<li>Button</li>
+<li>State</li>
+</ul>
+<h2 id="基礎技術-1">基礎技術<a hidden class="anchor" aria-hidden="true" href="#基礎技術-1">#</a></h2>
+<h3 id="code">Code<a hidden class="anchor" aria-hidden="true" href="#code">#</a></h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-swift" data-lang="swift"><span style="display:flex;"><span><span style="color:#66d9ef">import</span> <span style="color:#a6e22e">SwiftUI</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">ContentView</span>: View {
+</span></span><span style="display:flex;"><span>    @State <span style="color:#66d9ef">var</span> currentBackgroundColor = Color(red: <span style="color:#ae81ff">0.09</span>, green: <span style="color:#ae81ff">0.63</span>, blue: <span style="color:#ae81ff">0.52</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> body: some View {
+</span></span><span style="display:flex;"><span>        ZStack {
+</span></span><span style="display:flex;"><span>            currentBackgroundColor
+</span></span><span style="display:flex;"><span>                .edgesIgnoringSafeArea(.all)
+</span></span><span style="display:flex;"><span>            VStack {
+</span></span><span style="display:flex;"><span>                Image(systemName: <span style="color:#e6db74">&#34;person.fill&#34;</span>)
+</span></span><span style="display:flex;"><span>                    .resizable()
+</span></span><span style="display:flex;"><span>                    <span style="color:#75715e">//.aspectRatio(contentMode: .fit)</span>
+</span></span><span style="display:flex;"><span>                    .frame(width: <span style="color:#ae81ff">150.0</span>, height: <span style="color:#ae81ff">150.0</span>)
+</span></span><span style="display:flex;"><span>                    .foregroundColor(.green)
+</span></span><span style="display:flex;"><span>                    .clipShape(Circle())
+</span></span><span style="display:flex;"><span>                    .overlay(Circle().stroke(.white, lineWidth: <span style="color:#ae81ff">5</span>))
+</span></span><span style="display:flex;"><span>                Text(<span style="color:#e6db74">&#34;Feng Yu Wei&#34;</span>)
+</span></span><span style="display:flex;"><span>                    .font(.system(size: <span style="color:#ae81ff">40</span>, design: .rounded))
+</span></span><span style="display:flex;"><span>                    .bold()
+</span></span><span style="display:flex;"><span>                    .foregroundColor(.white)
+</span></span><span style="display:flex;"><span>                Text(<span style="color:#e6db74">&#34;iOS Developer&#34;</span>)
+</span></span><span style="display:flex;"><span>                    .font(.system(size: <span style="color:#ae81ff">25</span>))
+</span></span><span style="display:flex;"><span>                    .foregroundColor(.white)
+</span></span><span style="display:flex;"><span>                    .italic()
+</span></span><span style="display:flex;"><span>                InfoView(imageName: <span style="color:#e6db74">&#34;phone.fill&#34;</span>, text: <span style="color:#e6db74">&#34;+86 18888988788&#34;</span>)
+</span></span><span style="display:flex;"><span>                InfoView(imageName: <span style="color:#e6db74">&#34;envelope.fill&#34;</span>, text: <span style="color:#e6db74">&#34;fengyuwei@zju.edu.cn&#34;</span>)
+</span></span><span style="display:flex;"><span>                HStack {
+</span></span><span style="display:flex;"><span>                    Button {
+</span></span><span style="display:flex;"><span>                        currentBackgroundColor = Color.red
+</span></span><span style="display:flex;"><span>                    } label: {
+</span></span><span style="display:flex;"><span>                        Image(systemName: <span style="color:#e6db74">&#34;star.fill&#34;</span>)
+</span></span><span style="display:flex;"><span>                            .resizable()
+</span></span><span style="display:flex;"><span>                            .frame(width: <span style="color:#ae81ff">35</span>, height: <span style="color:#ae81ff">35</span>)
+</span></span><span style="display:flex;"><span>                            .foregroundStyle(.red)
+</span></span><span style="display:flex;"><span>                    }
+</span></span><span style="display:flex;"><span>                    Button {
+</span></span><span style="display:flex;"><span>                        currentBackgroundColor = Color.blue
+</span></span><span style="display:flex;"><span>                    } label: {
+</span></span><span style="display:flex;"><span>                        Image(systemName: <span style="color:#e6db74">&#34;star.fill&#34;</span>)
+</span></span><span style="display:flex;"><span>                            .resizable()
+</span></span><span style="display:flex;"><span>                            .frame(width: <span style="color:#ae81ff">35</span>, height: <span style="color:#ae81ff">35</span>)
+</span></span><span style="display:flex;"><span>                            .foregroundStyle(.blue)
+</span></span><span style="display:flex;"><span>                    }
+</span></span><span style="display:flex;"><span>                    Button {
+</span></span><span style="display:flex;"><span>                        currentBackgroundColor = Color(red: <span style="color:#ae81ff">0.09</span>, green: <span style="color:#ae81ff">0.63</span>, blue: <span style="color:#ae81ff">0.52</span>)
+</span></span><span style="display:flex;"><span>                    } label: {
+</span></span><span style="display:flex;"><span>                        Image(systemName: <span style="color:#e6db74">&#34;star.fill&#34;</span>)
+</span></span><span style="display:flex;"><span>                            .resizable()
+</span></span><span style="display:flex;"><span>                            .frame(width: <span style="color:#ae81ff">35</span>, height: <span style="color:#ae81ff">35</span>)
+</span></span><span style="display:flex;"><span>                            .foregroundStyle(.green)
+</span></span><span style="display:flex;"><span>                    }
+</span></span><span style="display:flex;"><span>                }
+</span></span><span style="display:flex;"><span>            }
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">InfoView</span>: View {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> imageName: String
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> text: String
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> imageColor: Color? = .green
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">var</span> body: some View {
+</span></span><span style="display:flex;"><span>        RoundedRectangle(cornerRadius: <span style="color:#ae81ff">25</span>)
+</span></span><span style="display:flex;"><span>            .fill(Color.white)
+</span></span><span style="display:flex;"><span>            .frame(height: <span style="color:#ae81ff">50</span>)
+</span></span><span style="display:flex;"><span>            .overlay(
+</span></span><span style="display:flex;"><span>                HStack {
+</span></span><span style="display:flex;"><span>                    Image(systemName: imageName)
+</span></span><span style="display:flex;"><span>                        .foregroundColor(imageColor)
+</span></span><span style="display:flex;"><span>                    Text(text)
+</span></span><span style="display:flex;"><span>                        .foregroundColor(.black)
+</span></span><span style="display:flex;"><span>                })
+</span></span><span style="display:flex;"><span>            .padding(.all)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div>
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:1313/tags/text/">Text</a></li>
+      <li><a href="http://localhost:1313/tags/image/">Image</a></li>
+      <li><a href="http://localhost:1313/tags/stack/">Stack</a></li>
+      <li><a href="http://localhost:1313/tags/button/">Button</a></li>
+    </ul>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>&copy; 2025 <a href="http://localhost:1313/">Learn Swift 🚀 | Happy Coding 🚗</a></span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>
