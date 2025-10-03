@@ -3,5 +3,5 @@ node_modules
 dist
 tmp
 
-/public/
-/resources/_gen/
+*/public/*
+*/resources/_gen/*
