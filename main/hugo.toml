@@ -1,0 +1,78 @@
+baseURL = 'https://example.org/'
+languageCode = 'en-us'
+title = 'Learn Swift 🚀 | Happy Coding 🚗'
+theme = 'papermod'
+
+[menus]
+  [[menus.main]]
+    name = 'Home'
+    pageRef = '/'
+    url = '/'
+    weight = 5
+  [[menus.main]]
+    name = 'Notes'
+    pageRef = '/notes'
+    url = 'notes/'
+    weight = 10
+  [[menus.main]]
+    name = 'Tags'
+    pageRef = '/tags'
+    url = 'tags/'
+    weight = 10
+
+[outputs]
+  home = ['html', 'rss']
+  page = ['html']
+  rss = ['rss']
+  section = ['html', 'rss']
+  taxonomy = ['html', 'rss']
+  term = ['html', 'rss']
+
+[taxonomies]
+  category = 'categories'
+  tag = 'tags'
+
+[markup]
+  [markup.goldmark.extensions]
+    definitionList = true
+    linkify = true
+    [markup.goldmark.extensions.cjk]
+      eastAsianLineBreaks = false
+      eastAsianLineBreaksStyle = 'simple'
+      enable = false
+      escapedSpace = false
+
+[params]
+  env = 'production'
+  description = 'Swift Class Notes'
+  author = 'Yu Wei, Feng'
+  defaultTheme = 'auto'
+  # disableThemeToggle: true
+  ShowShareButtons = false
+  ShowReadingTime = true
+  # disableSpecial1stPost: true
+  displayFullLangName = true
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = true
+  ShowCodeCopyButtons = true
+  ShowRssButtonInSectionTermList = true
+  ShowAllPagesInArchive = true
+  ShowPageNums = true
+  ShowToc = true
+  TocOpen = false
+  [params.assets]
+    favicon = '/img/favicon/favicon.ico'
+    favicon16x16 = '/img/favicon/favicon16x16.png'
+    favicon32x32 = '/img/favicon/favicon32x32.png'
+    apple_touch_icon = '/img/favicon/apple-touch-icon.png'
+  [params.homeInfoParams]
+    Title = "Notes for SwiftUI Class 🍺"
+    Content = "- 🍄 Author: Yu Wei, Feng\n- ✉️ Mail: david88913@gmail.com"
+  [[params.socialIcons]]
+    name = 'github'
+    title = 'View My Github'
+    url = 'https://github.com/novel2430'
+  [[params.socialIcons]]
+    name = 'Instagram'
+    title = 'My Instagram'
+    url = 'https://www.instagram.com/fongyuwei'
