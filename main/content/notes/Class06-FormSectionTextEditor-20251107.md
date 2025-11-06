@@ -1,7 +1,7 @@
 +++
 date = '2025-11-06T16:15:08+08:00'
 draft = false 
-title = 'Class06 Form, Section, & TextEditor'
+title = 'Class06 - Form, Section, & TextEditor'
 tags = ['Form', 'Section', 'TextEditor']
 isCJKLanguage = true
 +++
