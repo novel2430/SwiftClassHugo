@@ -1,7 +1,6 @@
 +++
 date = '2025-12-12T10:07:38+08:00'
 draft = false 
-title = 'Class08 StateObjectObservedObjectMVVM 20251212'
 title = 'Class08 - StateObject, ObservedObject, MVVM'
 tags = ['StateObject', 'ObservedObject', 'MVVM', 'State', 'Binding' ]
 isCJKLanguage = true
